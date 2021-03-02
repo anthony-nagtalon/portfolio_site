@@ -27,7 +27,7 @@ class App extends React.Component {
         text: 'This is the text'
       } ,
       about: {
-        title: 'About Me'
+        title: 'Who am I?'
       } ,
       resume: {
         title: 'My Resume'

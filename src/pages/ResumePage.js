@@ -1,9 +1,14 @@
 import React from 'react';
 import { Document, Page, pdfjs } from 'react-pdf';
+import { StyleSheet } from '@react-pdf/renderer';
 
 import resume from '../assets/pdfs/resume.pdf';
 
 function ResumePage(props) {
+
+    const styles = StyleSheet.create({
+       page: { backgroundColor: 'tomato' } 
+    });
 
     pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
 
@@ -20,9 +25,13 @@ function ResumePage(props) {
     }
 
     return (
-        <div class="d-flex justify-content-center">
-            <Document file={resume}>
-                <Page pageNumber={1} onLoadSuccess={removeTextLayerOffset} />
+        <div className="d-flex justify-content-center">
+            <Document file={resume} size='A4'>
+                <Page 
+                pageNumber={1} 
+                onLoadSuccess={removeTextLayerOffset} 
+                style={styles.page}
+                width={1000} />
             </Document>
         </div>
     );
