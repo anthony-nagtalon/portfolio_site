@@ -1,14 +1,10 @@
 import React from 'react';
 import { Document, Page, pdfjs } from 'react-pdf';
-import { StyleSheet } from '@react-pdf/renderer';
+import 'react-pdf/dist/esm/Page/AnnotationLayer.css';
 
 import resume from '../assets/pdfs/resume.pdf';
 
 function ResumePage(props) {
-
-    const styles = StyleSheet.create({
-       page: { backgroundColor: 'tomato' } 
-    });
 
     pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
 
@@ -29,9 +25,9 @@ function ResumePage(props) {
             <Document file={resume} size='A4'>
                 <Page 
                 pageNumber={1} 
-                onLoadSuccess={removeTextLayerOffset} 
-                style={styles.page}
-                width={1000} />
+                renderTextLayer={false}
+                renderAnnotationLayer={true}
+                width={900} />
             </Document>
         </div>
     );
