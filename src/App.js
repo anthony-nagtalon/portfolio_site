@@ -9,6 +9,7 @@ import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import ResumePage from './pages/ResumePage';
+import ContactPage from './pages/ContactPage';
 
 class App extends React.Component {
 
@@ -31,6 +32,9 @@ class App extends React.Component {
       } ,
       resume: {
         title: 'My Resume'
+      } ,
+      contact: {
+        title: 'Contact Me'
       }
     }
   }
@@ -49,6 +53,7 @@ class App extends React.Component {
                 <Link className="nav-link" to="/">Home</Link>
                 <Link className="nav-link" to="/about">About</Link>
                 <Link className="nav-link" to="/resume">Resume</Link>
+                <Link className="nav-link" to="/contact">Contact Me</Link>
               </Nav>
             </Navbar.Collapse>
           </Navbar>
@@ -56,6 +61,7 @@ class App extends React.Component {
           <Route path="/" exact render={() => <HomePage title={this.state.home.title} subTitle={this.state.home.subTitle} text={this.state.home.text}/>} />
           <Route path="/about" render={() => <AboutPage title={this.state.about.title} />} />
           <Route path="/resume" render={() => <ResumePage title={this.state.resume.title} />} />
+          <Route path="/contact" render={() => <ContactPage title={this.state.contact.title} />} />
 
           <Footer />
 
